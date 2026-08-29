@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DS Public School | Wagad, Aripal</title>
+<style>
+:root{--green:#0d6b45;--dark:#063d28;--light:#eef8f3;--white:#fff;--text:#18352a;--muted:#64756e;--border:#dce9e2;--shadow:0 10px 28px rgba(10,70,45,.12)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:var(--light);color:var(--text);padding-bottom:88px}
+.header{background:linear-gradient(135deg,var(--dark),var(--green));color:#fff;padding:30px 20px 42px;border-radius:0 0 36px 36px}
+.school-name{font-size:28px;font-weight:800}.location{font-size:17px;opacity:.85;margin-top:7px}
+.container{max-width:700px;margin:auto;padding:0 18px}
+.welcome{background:#fff;margin-top:-25px;padding:24px;border-radius:25px;box-shadow:var(--shadow)}
+.welcome h2{font-size:25px;color:var(--dark)}.welcome p{color:var(--muted);margin-top:8px;font-size:17px}
+.section-title{font-size:25px;margin:34px 4px 16px;color:var(--dark)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.card{background:#fff;border:1px solid var(--border);border-radius:24px;padding:23px 14px;text-align:center;box-shadow:0 5px 16px rgba(0,0,0,.04);cursor:pointer}
+.card:active{transform:scale(.97)}.icon{font-size:38px;margin-bottom:10px}.card h3{font-size:17px}
+.notice-box,.info-box{background:#fff;border-radius:22px;padding:8px 18px;box-shadow:var(--shadow)}
+.notice{padding:16px 0;border-bottom:1px solid var(--border)}.notice:last-child{border-bottom:0}
+.notice b{display:block;font-size:17px;margin-bottom:5px}.notice span{font-size:14px;color:var(--muted)}
+.contact{background:linear-gradient(135deg,#fff,#e7f6ed);padding:20px;border-radius:22px;border:1px solid var(--border)}
+.contact p{margin:8px 0;color:#38554a}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--border);display:flex;justify-content:space-around;padding:11px 4px calc(11px + env(safe-area-inset-bottom));z-index:10}
+.nav-item{border:0;background:transparent;color:#4f625a;font-size:13px;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer}
+.nav-icon{font-size:25px}.nav-item.active{color:var(--green);font-weight:bold}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.48);z-index:30;align-items:center;justify-content:center;padding:20px}
+.modal.show{display:flex}.modal-card{background:#fff;width:min(480px,100%);border-radius:28px;padding:28px;text-align:center;box-shadow:0 20px 50px rgba(0,0,0,.25)}
+.modal-card h2{color:var(--dark);margin-bottom:14px}.modal-card p{line-height:1.55;color:#41544c;margin-bottom:18px}
+.modal-list{text-align:left;margin:10px 0 20px;padding-left:20px;color:#41544c;line-height:1.8}
+.close-btn{border:0;background:var(--green);color:#fff;padding:14px 30px;border-radius:14px;font-size:17px;cursor:pointer}
+.small{font-size:13px;color:var(--muted);margin-top:10px}
+</style>
+</head>
+<body>
+<header class="header"><div class="container"><div class="school-name">🏫 DS Public School</div><div class="location">Wagad, Aripal</div></div></header>
+<main class="container">
+<section class="welcome"><h2>Welcome, Student! 👋</h2><p>Learn • Grow • Shine</p></section>
+<h2 class="section-title">School Services</h2>
+<section class="grid">
+<button class="card" onclick="openModal('homework')"><div class="icon">📚</div><h3>Homework</h3></button>
+<button class="card" onclick="openModal('timetable')"><div class="icon">📅</div><h3>Timetable</h3></button>
+<button class="card" onclick="openModal('teachers')"><div class="icon">👨‍🏫</div><h3>Teachers</h3></button>
+<button class="card" onclick="openModal('notices')"><div class="icon">📢</div><h3>Notices</h3></button>
+</section>
+<h2 class="section-title">Latest Notices 📢</h2>
+<section class="notice-box">
+<div class="notice"><b>📌 Welcome to DS Public School App!</b><span>This is the official school information portal.</span></div>
+<div class="notice"><b>📚 Students should check homework regularly.</b><span>Updated by teachers when new work is available.</span></div>
+<div class="notice"><b>📅 Check the timetable before coming to school.</b><span>Please keep your books and notebooks ready.</span></div>
+</section>
+<h2 class="section-title">About Our School</h2>
+<section class="info-box"><p style="padding:16px 0;line-height:1.6;color:#41544c">DS Public School, Wagad, Aripal is a school information portal for students and parents. This website can be updated with real school notices, homework, timetable and teacher information.</p></section>
+<h2 class="section-title">Contact</h2>
+<section class="contact"><p><b>🏫 DS Public School</b></p><p>📍 Wagad, Aripal</p><p>📞 Add official school phone number here</p><p>📧 Add official school email here</p></section>
+</main>
+<nav class="bottom-nav">
+<button class="nav-item active" onclick="scrollToTop()"><span class="nav-icon">🏠</span>Home</button>
+<button class="nav-item" onclick="openModal('profile')"><span class="nav-icon">👤</span>Profile</button>
+<button class="nav-item" onclick="openModal('notices')"><span class="nav-icon">🔔</span>Notices</button>
+</nav>
+<div class="modal" id="modal" onclick="if(event.target===this)closeModal()"><div class="modal-card"><h2 id="modalTitle">Information</h2><div id="modalContent"></div><button class="close-btn" onclick="closeModal()">Close</button></div></div>
+<script>
+const content={
+homework:{title:'Homework 📚',html:'<p>Check your daily homework here. Teachers can update this section regularly.</p><ul class="modal-list"><li>English — Add homework here</li><li>Mathematics — Add homework here</li><li>Science — Add homework here</li><li>Social Studies — Add homework here</li></ul><p class="small">Demo content — replace it with real homework.</p>'},
+timetable:{title:'Timetable 📅',html:'<p>Add your official class timetable here.</p><ul class="modal-list"><li>Monday — English, Maths, Science</li><li>Tuesday — SST, English, Maths</li><li>Wednesday — Science, Computer</li></ul><p class="small">This is demo content.</p>'},
+teachers:{title:'Teachers 👨‍🏫',html:'<p>Teacher information can be added here.</p><ul class="modal-list"><li>Principal — Add name</li><li>English Teacher — Add name</li><li>Mathematics Teacher — Add name</li><li>Science Teacher — Add name</li></ul>'},
+notices:{title:'Latest Notices 📢',html:'<p>Welcome to the DS Public School information portal. New notices can be added directly in the website code.</p>'},
+profile:{title:'Student Profile 👤',html:'<p>This section can later contain student login and profile details.</p><p class="small">A real login system needs a database/backend. This current website is a front-end demo.</p>'}
+};
+function openModal(type){document.getElementById('modalTitle').innerHTML=content[type].title;document.getElementById('modalContent').innerHTML=content[type].html;document.getElementById('modal').classList.add('show')}
+function closeModal(){document.getElementById('modal').classList.remove('show')}
+function scrollToTop(){window.scrollTo({top:0,behavior:'smooth'})}
+</script>
+</body>
+</html>
