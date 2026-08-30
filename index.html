@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DS Public School | Wagad, Aripal</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #eef8f2;
+    color: #173d2b;
+    padding-bottom: 85px;
+}
+
+/* HEADER */
+.header {
+    background: linear-gradient(135deg, #064d2f, #13965a);
+    color: white;
+    padding: 30px 20px 48px;
+    border-radius: 0 0 35px 35px;
+}
+
+.header h1 {
+    font-size: 27px;
+}
+
+.header p {
+    margin-top: 8px;
+    font-size: 17px;
+    opacity: 0.9;
+}
+
+/* WELCOME CARD */
+.welcome {
+    background: white;
+    margin: -25px 16px 20px;
+    padding: 22px;
+    border-radius: 22px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.welcome h2 {
+    color: #064d2f;
+    font-size: 23px;
+}
+
+.welcome p {
+    margin-top: 7px;
+    color: #68766f;
+}
+
+/* SECTIONS */
+.section {
+    padding: 0 16px;
+    margin-top: 28px;
+}
+
+.section-title {
+    color: #064d2f;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.card {
+    background: white;
+    border: none;
+    padding: 22px 12px;
+    border-radius: 20px;
+    box-shadow: 0 5px 16px rgba(0,0,0,0.08);
+    cursor: pointer;
+}
+
+.card:active {
+    transform: scale(0.97);
+}
+
+.icon {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.card h3 {
+    color: #064d2f;
+    font-size: 16px;
+}
+
+/* INFO BOX */
+.info-box {
+    background: white;
+    padding: 18px;
+    border-radius: 20px;
+    box-shadow: 0 5px 16px rgba(0,0,0,0.08);
+}
+
+.info-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #e7eee9;
+    line-height: 1.5;
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+/* CONTACT */
+.contact {
+    background: #e0f4e7;
+    padding: 20px;
+    border-radius: 20px;
+    line-height: 1.8;
+}
+
+/* BOTTOM NAV */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    display: flex;
+    justify-content: space-around;
+    padding: 11px 5px;
+    box-shadow: 0 -3px 15px rgba(0,0,0,0.12);
+}
+
+.nav-item {
+    text-align: center;
+    color: #064d2f;
+    font-size: 12px;
+    border: none;
+    background: none;
+}
+
+.nav-icon {
+    font-size: 23px;
+}
+
+/* POPUP */
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.popup-content {
+    background: white;
+    width: 100%;
+    max-width: 420px;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 25px;
+    border-radius: 25px;
+}
+
+.popup-content h2 {
+    color: #064d2f;
+    margin-bottom: 15px;
+}
+
+.popup-content p {
+    line-height: 1.7;
+}
+
+.popup-content ul {
+    padding-left: 22px;
+    line-height: 2;
+}
+
+.close-btn {
+    background: #0b7545;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 12px;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    color: #748078;
+    font-size: 13px;
+    padding: 25px 10px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+    <h1>🏫 DS Public School</h1>
+    <p>Wagad, Aripal</p>
+</div>
+
+<!-- WELCOME -->
+<div class="welcome">
+    <h2>Welcome, Student! 👋</h2>
+    <p>Learn • Grow • Shine</p>
+</div>
+
+<!-- SCHOOL SERVICES -->
+<div class="section">
+    <div class="section-title">School Services</div>
+
+    <div class="grid">
+
+        <button class="card" onclick="showInfo('Homework')">
+            <div class="icon">📚</div>
+            <h3>Homework</h3>
+        </button>
+
+        <button class="card" onclick="showInfo('Timetable')">
+            <div class="icon">📅</div>
+            <h3>Timetable</h3>
+        </button>
+
+        <button class="card" onclick="showInfo('Teachers')">
+            <div class="icon">👨‍🏫</div>
+            <h3>Teachers</h3>
+        </button>
+
+        <button class="card" onclick="showInfo('Notices')">
+            <div class="icon">📢</div>
+            <h3>Notices</h3>
+        </button>
+
+    </div>
+</div>
+
+<!-- LATEST NOTICES -->
+<div class="section">
+    <div class="section-title">Latest Notices 📢</div>
+
+    <div class="info-box">
+        <div class="info-item">
+            <b>School will remain closed on Sunday.</b>
+        </div>
+
+        <div class="info-item">
+            <b>Complete your homework on time.</b>
+        </div>
+    </div>
+</div>
+
+<!-- ABOUT SCHOOL -->
+<div class="section">
+    <div class="section-title">About Our School</div>
+
+    <div class="info-box">
+        <p>
+            Welcome to DS Public School, Wagad, Aripal.
+            This school website helps students check homework,
+            timetable, teachers and important school notices.
+        </p>
+    </div>
+</div>
+
+<!-- CONTACT -->
+<div class="section">
+    <div class="section-title">Contact School</div>
+
+    <div class="contact">
+        🏫 <b>DS Public School</b><br>
+        📍 Wagad, Aripal<br>
+        📞 8899134036
+    </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+    © DS Public School Wagad, Aripal
+</div>
+
+<!-- BOTTOM NAVIGATION -->
+<div class="bottom-nav">
+
+    <button class="nav-item" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <div class="nav-icon">🏠</div>
+        Home
+    </button>
+
+    <button class="nav-item" onclick="showInfo('Teachers')">
+        <div class="nav-icon">👨‍🏫</div>
+        Teachers
+    </button>
+
+    <button class="nav-item" onclick="showInfo('Notices')">
+        <div class="nav-icon">🔔</div>
+        Notices
+    </button>
+
+</div>
+
+<!-- POPUP -->
+<div class="popup" id="popup">
+    <div class="popup-content">
+        <h2 id="popupTitle"></h2>
+        <div id="popupText"></div>
+
+        <button class="close-btn" onclick="closePopup()">Close</button>
+    </div>
+</div>
+
+<script>
+function showInfo(type) {
+
+    let title = "";
+    let text = "";
+
+    if (type === "Homework") {
+        title = "📚 Homework";
+        text = `
+            <ul>
+                <li>Learn Chapter 2</li>
+                <li>Learn Chapter 3</li>
+                <li>Learn Page No. 33</li>
+            </ul>
+        `;
+    }
+
+    if (type === "Timetable") {
+        title = "📅 Timetable";
+        text = `
+            <p><b>Monday to Thursday:</b></p>
+            <ul>
+                <li>English</li>
+                <li>Maths</li>
+                <li>History</li>
+                <li>Science</li>
+                <li>Urdu</li>
+                <li>Kashmiri</li>
+            </ul>
+
+            <br>
+
+            <p><b>Friday and Saturday:</b></p>
+            <ul>
+                <li>Geography</li>
+                <li>Political</li>
+            </ul>
+        `;
+    }
+
+    if (type === "Teachers") {
+        title = "👨‍🏫 Our Teachers";
+        text = `
+            <ul>
+                <li>Mosin Sir</li>
+                <li>Janghir Sir</li>
+            </ul>
+        `;
+    }
+
+    if (type === "Notices") {
+        title = "📢 Latest Notices";
+        text = `
+            <ul>
+                <li>School will remain closed on Sunday.</li>
+                <li>Complete your homework on time.</li>
+            </ul>
+        `;
+    }
+
+    document.getElementById("popupTitle").innerHTML = title;
+    document.getElementById("popupText").innerHTML = text;
+    document.getElementById("popup").style.display = "flex";
+}
+
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+}
+</script>
+
+</body>
+</html>
